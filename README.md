@@ -8,10 +8,10 @@ cd app
 *python3 -m venv venv
 
 **Activate the virtual environment** 
-* source venv/bin/activate
+*source venv/bin/activate
 
 **Install the necessary the requirements**
-pip3 install -r requirements.txt
+*pip3 install -r requirements.txt
 
 **Start the flask server** 
-python3 route.py
+*python3 route.py
