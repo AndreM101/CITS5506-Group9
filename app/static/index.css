@@ -1,0 +1,32 @@
+h1.title {
+  margin-top: 20px;
+  text-align: center;
+}
+
+h5.name {
+  text-align: center;
+}
+
+h5.text {
+  text-align: center;
+  font-size: 40pt;
+}
+
+.card {
+  margin-top: 15px;
+}
+
+.chart {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#linechart.chart {
+  border: 3px solid black;
+}
+
+#linechart1.chart {
+  border: 3px solid black;
+}
