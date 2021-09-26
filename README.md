@@ -2,7 +2,7 @@
 
 ## How to Start the project 
 
-cd app
+* Make sure everyone in CITS5506-GROUP9 directory
 
 **To install virtual environment**
 * python3 -m venv venv
