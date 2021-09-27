@@ -2,15 +2,21 @@ import os
 import sqlite3
 
 database_dir = '/database/database.db'
+#size of pipe
+s = 1
 #data should be a list: [[flow,time],...]
 def input_water_data(data,start_time,end_time,area):
     database = sqlite3.connect(database_dir)
     c = database.cursor()
     quantity = 0
     for n in data:
-        quantity = quantity + n[0] * n[1]
+        quantity = quantity + n[0] * n[1] * s
+    c = database.cursor()
+    cur = c.execute("SELECT AREACODE FROM AREA WHERE AREANAME = ?",(area,))
+    for n in cur:
+        id = list(n)[0]        
     c.execute("INSERT INTO water (STARTTIME,ENDTIME,QUANTITY,AREA)\
-        VALUES(?,?,?,?)",(start_time,end_time,quantity,area))
+        VALUES(?,?,?,?)",(start_time,end_time,quantity,id))
     database.commit()
     database.close()
 
@@ -31,7 +37,7 @@ def input_water_price(area,price):
         id = list(n)[0]
     tier = 1
     for n in price:
-        c.execute("INSERT INTO Tiers (AREA,TIER,START,END,FEE)\
+        c.execute("INSERT OR REPLACE INTO Tiers (AREA,TIER,START,END,FEE)\
         VALUES(?,?,?,?,?)",(id,tier,n[0],[1],n[2]))
         tier = tier + 1
     database.commit()
