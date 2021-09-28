@@ -1,7 +1,7 @@
 import os
 import sqlite3
 
-database_dir = '/database/database.db'
+database_dir = 'app/database/database.db'
 #size of pipe
 s = 1
 #data should be a list: [[flow,time],...]
