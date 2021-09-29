@@ -14,6 +14,7 @@
         <h1 class="title">Smart Water Meter System</h1>
       </div>
     </div>
+    
     <div class="container">
       <div class="row">
         <div class="block">
@@ -21,21 +22,51 @@
           <br>
           <h5 class="text">$32 <small class="text-muted">/ day</small></h5>
           <br>
-          <button type="button" class="btn">More Details</button>
+          <div class="popup" id="popup-1">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="close-btn" onclick="togglePopup()">&times;</div>
+              <h1>Title</h1>
+              <p>
+                This is what you're looking for!
+               </p>
+            </div>
+          </div>
+          <button onclick="togglePopup()" class="btn">More Details</button>
         </div>
         <div class="block">
           <h3 class="block-name">Water Price</h3>
           <br>
           <h5 class="text">$2.05 <small class="text-muted">/ Kilolitre</small></h5>
           <br>
-          <button type="button" class="btn">More Details</button>
+          <div class="popup" id="popup-2">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="close-btn" onclick="togglePopup()">&times;</div>
+              <h1>Title</h1>
+              <p>
+                Your current water price is !
+              </p>
+            </div>
+          </div>
+          <button onclick="togglePopup()" class="btn">More Details</button>
         </div> 
         <div class="block">
           <h3 class="block-name">Estimated Bill</h3>
           <br>
           <h5 class="text">$76<small class="text-muted"> today</small></h5>
           <br>
-          <button type="button" class="btn">More Details</button>
+          <div class="popup" id="popup-3">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="close-btn" onclick="togglePopup()">&times;</div>
+              <h1>Title</h1>
+              <p>
+                Your estimated bill for today is !
+              </p>
+            </div>
+          </div>
+          <button onclick="togglePopup()" class="btn">More Details</button>
         </div>
       </div>
     </div>

@@ -67,3 +67,9 @@ const line1 = function() {
 
 line()
 line1()
+
+function togglePopup(){
+  document.getElementById("popup-1").classList.toggle("active");
+  document.getElementById("popup-2").classList.toggle("active");
+  document.getElementById("popup-3").classList.toggle("active");
+}
