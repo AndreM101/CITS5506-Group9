@@ -14,13 +14,25 @@
         <h1 class="title">Smart Water Meter System</h1>
       </div>
     </div>
+    <div class="container">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Please Select Your Region
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="demolist">
+          <li><a class="dropdown-item" href="#">Perth</a></li>
+          <li><a class="dropdown-item" href="#">South</a></li>
+          <li><a class="dropdown-item" href="#">North</a></li>
+        </ul>
+      </div>
+    </div>
     
     <div class="container">
       <div class="row">
         <div class="block">
           <h3 class="block-name">Water Meter</h3>
           <br>
-          <h5 class="text">$32 <small class="text-muted">/ day</small></h5>
+          <h5 class="text">{{rows[0][0]}} KL <small class="text-muted">/ day</small></h5>
           <br>
           <div class="popup" id="popup-1">
             <div class="overlay"></div>
@@ -37,7 +49,7 @@
         <div class="block">
           <h3 class="block-name">Water Price</h3>
           <br>
-          <h5 class="text">$2.05 <small class="text-muted">/ Kilolitre</small></h5>
+          <h5 class="text">${{rows[0][1]}} <small class="text-muted">/ KL</small></h5>
           <br>
           <div class="popup" id="popup-2">
             <div class="overlay"></div>
@@ -54,7 +66,7 @@
         <div class="block">
           <h3 class="block-name">Estimated Bill</h3>
           <br>
-          <h5 class="text">$76<small class="text-muted"> today</small></h5>
+          <h5 class="text">{{rows[0][2]}}<small class="text-muted"> today</small></h5>
           <br>
           <div class="popup" id="popup-3">
             <div class="overlay"></div>
@@ -70,19 +82,112 @@
         </div>
       </div>
     </div>
-         
+    
     <div class="container">
       <div id="linechart"  class="chart"></div>
         <br>
+        <div class="container">
+          <table class="table table-striped" id="perth">
+            <thead>
+              <tr>
+                <th scope="col">Region</th>
+                <th scope="col">Type</th>
+                <th scope="col">KL/year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Perth Metropolitan</td>
+                <td>Tiers 1</td>
+                <td>0-150 KL</td>
+              </tr>
+              <tr>
+                <td>Perth Metropolitan</td>
+                <td>Tiers 2</td>
+                <td>151-500 KL</td>
+              </tr>
+              <tr>
+                <td>Perth Metropolitan</td>
+                <td>Tiers 3</td>
+                <td>Over 500 KL</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="container">
+          <table class="table table-striped" id="south">
+            <thead>
+              <tr>
+                <th scope="col">Region</th>
+                <th scope="col">Type</th>
+                <th scope="col">KL/year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>South Regional</td>
+                <td>Tiers 1</td>
+                <td>0-150 KL</td>
+              </tr>
+              <tr>
+                <td>South Regional</td>
+                <td>Tiers 2</td>
+                <td>151-300 KL</td>
+              </tr>
+              <tr>
+                <td>South Regional</td>
+                <td>Tiers 3</td>
+                <td>301-500 KL</td>
+              </tr>
+              <tr>
+                <td>South Regional</td>
+                <td>Tiers 4</td>
+                <td>Over 550 KL</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="container">
+          <table class="table table-striped" id="north">
+            <thead>
+              <tr>
+                <th scope="col">Region</th>
+                <th scope="col">Type</th>
+                <th scope="col">KL/year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>North Regional</td>
+                <td>Tiers 1</td>
+                <td>0-350 KL</td>
+              </tr>
+              <tr>
+                <td>North Regional</td>
+                <td>Tiers 2</td>
+                <td>351-500 KL</td>
+              </tr>
+              <tr>
+                <td>North Regional</td>
+                <td>Tiers 3</td>
+                <td>501-750 KL</td>
+              </tr>
+              <tr>
+                <td>North Regional</td>
+                <td>Tiers 4</td>
+                <td>Over 750 KL</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       <div id="linechart1" class="chart"></div>
     </div>
     
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../static/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" 
-    integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" 
-    crossorigin="anonymous"></script>
   </body>
   <hr>
   <footer id="footer">
