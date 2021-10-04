@@ -1,32 +1,152 @@
-h1.title {
-  margin-top: 20px;
-  text-align: center;
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color:#f4f4f4;
+  color:#555555;
+  font-weight:normal; 
 }
 
-h5.name {
+h1 {
+  margin-top: 30px;
+  margin-bottom:30px;
   text-align: center;
+  box-sizing: border-box;
 }
 
-h5.text {
+
+.container1{
+  display: flex;
+  justify-content: center;
+}
+
+.container2{
+  justify-content: center;
+}
+
+.dropdown{
+  justify-content: center;
+}
+
+.dropdown-menu{
   text-align: center;
-  font-size: 40pt;
+  justify-content: center;
+
 }
 
 .card {
+  background: #f0f0f0;
+  margin: 10px;
+  width: 270px;
+  border:1px solid #50aae6;
+  box-sizing:border-box;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.card-image{
+  background: #ccc;
+  height: 60px;
+  margin-bottom: 15px;
+  color: #555555;
+  text-align: center;    
+}
+
+.card-title{
   margin-top: 15px;
 }
+
+.text {
+  text-align: center;
+  font-size: 40pt;
+  padding: 10px;
+}
+
+.btn {
+  margin: auto;
+  margin-bottom: 30px;
+  align-self: center;
+  outline: none;
+  display: block;
+  border: solid 1px #50aae6;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 16px, 30px;
+  border-radius: 30px;
+  background: #fff;
+  color: #0081D5;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.btn:hover,
+.btn:focus{
+  background: #0081d5;
+  color: #ffffff;
+}
+
+.btn:active{
+  background:#fff;
+  color:#0081D5;
+}
+
 
 .chart {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 60px;
   margin-bottom: 20px;
+  box-sizing:border-box;
+  align-items: center;
 }
 
 #linechart.chart {
+  height: 370px; 
+  width: 80%;
   border: 3px solid black;
+  align-items: center;
+  justify-content: center; 
 }
 
 #linechart1.chart {
+  height: 370px; 
+  width: 80%;
   border: 3px solid black;
+  margin-bottom: 80px;
+  align-items: center;
+  justify-content: center; 
+  display:none;
+}
+
+footer{
+  align-self: center;
+  margin-top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10 em;
+	letter-spacing: 0.225em;
+  border-top: #555555 5px;
+}
+
+ul{
+  list-style-type: none;
+}
+
+.table table-striped{
+  display: flex;
+  justify-content: stretch; 
+  width: 100%;
+}
+
+#perth{
+  display: none;
+}
+
+#south{
+  display: none;
+}
+
+#north{
+  display: none;
 }
