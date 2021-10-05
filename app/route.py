@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 import os 
+import socket 
+import get_wifi
+from sys import platform
 
 app = Flask(__name__,template_folder="templates")
 
@@ -41,6 +44,19 @@ def get_water():
   cur.execute('select * from water where sensor_id =1')
   rows = cur.fetchall()
   return jsonify(rows)
+
+@app.route('/sendNetworkInformation', methods=["GET"])
+def sendNetworkInformation():
+  ip_address = socket.gethostbyname(socket.gethostname())
+  # get the ssid 
+  if platform=='darwin':
+    ssid=get_wifi.get_wifi_info()
+  headers = request.headers
+  auth = headers.get("X-Api-Key")
+  if auth == 'password':
+      return f'Ip address: {ip_address}\nSSID: {ssid}'
+  else:
+      return jsonify({"message": "ERROR: Unauthorized"}), 401
 
 
 if __name__=="__main__":
