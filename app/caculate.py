@@ -1,7 +1,7 @@
 from database import get_water_price
 
-def caculate_price(quantity,area):
-    price = get_water_price(area)
+def caculate_price(quantity):
+    price = get_water_price()
     tiers = len(price)
     s = 0
     q = quantity

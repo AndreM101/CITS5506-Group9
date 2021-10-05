@@ -22,7 +22,7 @@ def get_price(url):
   tables = sections = soup.find_all('table')
 
   for i in range(0,len(tables)):
-    print(title[i])
+    #print(title[i])
     df=pd.read_html(str(tables[i]))[0]
     # print(df)
     print(df.to_dict("records"))
