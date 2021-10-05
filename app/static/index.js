@@ -6,18 +6,21 @@ $("#demolist a").on('click', function(e) {
   // call the get price function and pass the region into the url to get the route 
   getPrice(selText)
   // check if the selection option and display the table 
-  if (selText=="Perth") {$('#perth').css({"display":"block","marginLeft":"auto","marginRight":"auto"})
+  if (selText=="Perth") {$('#perth').css({"display":"table","width": "100%", "text-align":"center"})
     $('#south').css("display","none")  
     $('#north').css("display","none")}
-  else if (selText=="South") {$('#south').css({"display":"block","marginLeft":"auto","marginRight":"auto"})
+  else if (selText=="South") {$('#south').css({"display":"table","width": "100%", "text-align":"center"})
     $('#perth').css("display","none")  
     $('#north').css("display","none")}
-  else if (selText=="North") {$('#north').css({"display":"block","marginLeft":"auto","marginRight":"auto"})
+  else if (selText=="North") {$('#north').css({"display":"table","width": "100%", "text-align":"center"})
     $('#perth').css("display","none")  
     $('#south').css("display","none")}
   // display the text after making selection 
   $("#dropdownMenuButton1").text(selText);
 });
+
+
+
 
 const getPrice = (region="Perth") => {
   fetch('/get_cost/' + region ,{
@@ -154,8 +157,4 @@ const bar = function(data) {
 
 getWater()
 
-function togglePopup(){
-  document.getElementById("popup-1").classList.toggle("active");
-  document.getElementById("popup-2").classList.toggle("active");
-  document.getElementById("popup-3").classList.toggle("active");
-}
+
