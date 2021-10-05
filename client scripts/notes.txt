@@ -1,0 +1,10 @@
+
+# We need to run sudo apt-get install python-smbus for node script
+
+
+if sudo iwlist wlan0 scan | grep "CITS5506-Group9" -c; then 
+	echo "A";
+	# access point found, run client main
+else
+	# no access point found, run server main
+fi

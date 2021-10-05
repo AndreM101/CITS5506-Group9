@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+import ExpanderPi
+import time
+import datetime
+import requests
+
+io = ExpanderPi.IO()
+io.set_port_direction(0, 0x01)
+io.set_port_pullups(0, 0x01)
+
+last_sent_time = datetime.datetime.now()
+last_recorded_time = datetime.datetime.now()
+interval = 1
+recordings = []
+
+#set this
+server_address = ""
+
+while True:
+	minutes = (datetime.datetime.now() - last_sent_time) / 60
+	if int(minutes) >= interval:
+		period_flow_rate = sum(recordings)/len(recordings)
+		payload = {"period_flow_rate": period_flow_rate, "minutes": interval}
+		# This is a placeholder payload, will likely be changed over the next week
+		# Don't necessarily make the webserver based on that
+
+		requests.post(server_address, data=payload)
+		recordings=[]
+		
+	if (datetime.datetime.now() - last_recorded_time).seconds >= 1:
+		raw_signal = io.read_pin(1)
+		raw_flow_rate = raw_signal / 11
+		recordsings.append(raw_flow_rate)
+		last_recorded_time = datetime.datetime.now()
