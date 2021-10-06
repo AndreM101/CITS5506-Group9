@@ -3,6 +3,7 @@ import sqlite3
 import os 
 import socket 
 import get_wifi
+import get_wifi_window
 from sys import platform
 
 app = Flask(__name__,template_folder="templates")
@@ -51,6 +52,8 @@ def sendNetworkInformation():
   # get the ssid 
   if platform=='darwin':
     ssid=get_wifi.get_wifi_info()
+  elif platform =="win32":
+    ssid= get_wifi_window.get_wifi_info()
   headers = request.headers
   auth = headers.get("X-Api-Key")
   if auth == 'password':
