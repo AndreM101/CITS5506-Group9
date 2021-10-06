@@ -21,11 +21,12 @@ while True:
 	minutes = (datetime.datetime.now() - last_sent_time) / 60
 	if int(minutes) >= interval:
 		period_flow_rate = sum(recordings)/len(recordings)
-		payload = {"period_flow_rate": period_flow_rate, "minutes": interval}
+#		payload = {"period_flow_rate": period_flow_rate, "minutes": interval}
 		# This is a placeholder payload, will likely be changed over the next week
 		# Don't necessarily make the webserver based on that
 
-		requests.post(server_address, data=payload)
+#		requests.post(server_address, data=payload)
+		print("Sending",payload)
 		recordings=[]
 		
 	if (datetime.datetime.now() - last_recorded_time).seconds >= 1:
