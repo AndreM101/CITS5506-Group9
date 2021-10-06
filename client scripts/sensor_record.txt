@@ -17,6 +17,7 @@ recordings = []
 server_address = ""
 
 while True:
+	print(recordings)
 	minutes = (datetime.datetime.now() - last_sent_time) / 60
 	if int(minutes) >= interval:
 		period_flow_rate = sum(recordings)/len(recordings)
@@ -30,5 +31,5 @@ while True:
 	if (datetime.datetime.now() - last_recorded_time).seconds >= 1:
 		raw_signal = io.read_pin(1)
 		raw_flow_rate = raw_signal / 11
-		recordsings.append(raw_flow_rate)
+		recordings.append(raw_flow_rate)
 		last_recorded_time = datetime.datetime.now()
