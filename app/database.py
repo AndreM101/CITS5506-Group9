@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import time
 
 database_dir = 'app/database/new_database.db'
 #size of pipe
@@ -24,14 +25,15 @@ def input_water_data(quantity,start_time,sensor):
     #database.commit()
     #database.close()
 
-#price should be a list[[Tier1_start,price],...]
-def input_water_price(price,date):
+#price should be a list[[Tier1_start,price,class],...]
+def input_water_price(price,area):
     database = sqlite3.connect(database_dir)
     c = database.cursor()
     tier = 1
+    t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
     for n in price:
-        c.execute("INSERT OR REPLACE INTO WATERPRICE (TIER,START,PRICE,DATESCAPED)\
-        VALUES(?,?,?,?)",(tier,n[0],n[1],date))
+        c.execute("INSERT OR REPLACE INTO TIERS (AREA,TIER,START,FEE,CLASS,TIMESTAMP)\
+        VALUES(?,?,?,?)",(area,tier,n[0],n[1],n[2],t))
         tier = tier + 1
     database.commit()
     database.close()
@@ -60,10 +62,10 @@ def get_water_data():
     #return l
 
 #return price in a list: [[Tier1_start,fee],...]
-def get_water_price():
+def get_water_price(area,cls):
     database = sqlite3.connect(database_dir)
     c = database.cursor()
-    cur = c.execute("SELECT Start,Price FROM WATERPRICE")
+    cur = c.execute("SELECT Start,Fee FROM TIERS WHERE AREA == ? AND class == ?",(area,cls,))
     p = []
     for row in cur:
         p.append(list(row))
