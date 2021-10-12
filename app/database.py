@@ -6,6 +6,7 @@ database_dir = 'app/database/database.db'
 #size of pipe
 s = 1
 
+# Insert sensor data function
 def input_water_data(quantity,start_time,sensor):
     database = sqlite3.connect(database_dir)
     c = database.cursor()
@@ -25,6 +26,7 @@ def input_water_data(quantity,start_time,sensor):
     #database.commit()
     #database.close()
 
+# Insert scraped data function
 #price should be a list[[Tier1_start,price,class],...]
 def input_water_price(price,area):
     database = sqlite3.connect(database_dir)
@@ -38,6 +40,7 @@ def input_water_price(price,area):
     database.commit()
     database.close()
 
+# Query all from water table
 #get all data in water table in a list
 def get_water_data():
     database = sqlite3.connect(database_dir)
