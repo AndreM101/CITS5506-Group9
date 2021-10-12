@@ -1,4 +1,6 @@
 from database import get_water_price
+# Input: Quantity (Water), area, class
+# Returns: water price for given input
 
 def caculate_price(quantity,area,cls):
     price = get_water_price(area,cls)
