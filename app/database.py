@@ -2,7 +2,7 @@ import os
 import sqlite3
 import time
 
-database_dir = 'app/database/new_database.db'
+database_dir = 'app/database/database.db'
 #size of pipe
 s = 1
 
@@ -12,7 +12,7 @@ def input_water_data(quantity,start_time,sensor):
     #quantity = 0
     #for n in data:
     #    quantity = quantity + n[0] * n[1] * s     
-    c.execute("INSERT INTO water (STARTTIME,SENSORID,QUANTITY)\
+    c.execute("INSERT INTO water (STARTTIME,SENSOR_ID,QUANTITY)\
         VALUES(?,?,?)",(start_time,sensor,quantity))
     database.commit()
     database.close()
@@ -33,7 +33,7 @@ def input_water_price(price,area):
     t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
     for n in price:
         c.execute("INSERT OR REPLACE INTO TIERS (AREA,TIER,START,FEE,CLASS,TIMESTAMP)\
-        VALUES(?,?,?,?)",(area,tier,n[0],n[1],n[2],t))
+        VALUES(?,?,?,?,?,?)",(area,tier,n[0],n[1],n[2],t))
         tier = tier + 1
     database.commit()
     database.close()

@@ -1,12 +1,13 @@
 from database import get_water_price
 
-def caculate_price(quantity):
-    price = get_water_price()
-    tiers = len(price)
+def caculate_price(quantity,area,cls):
+    price = get_water_price(area,cls)
+    tiers = len(price) - 1
     s = 0
     q = quantity
-    for i in range(tiers,0,-1):
-        if quantity > price[0]:
-            q = q - price[0]
-            s = s + q * price[1]
+    for i in range(tiers,-1,-1):
+        if quantity > price[i][0]:
+            t = q - price[i][0]
+            s = s + t * price[i][1]
+            q = price[i][0]
     return s
