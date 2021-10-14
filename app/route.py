@@ -6,10 +6,19 @@ import get_wifi
 import get_wifi_window
 from sys import platform
 
+from database import input_water_data
+from CITS5506-Group9.client scripts.sensor import payload
+
 app = Flask(__name__,template_folder="templates")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__)) 
 db_path = os.path.join(BASE_DIR, "database.db")
+
+#update data
+
+def updateData():
+    update_water = input_water_data(payload['period_flow_rate'],payload['seconds'],payload['id'])
+    return update_water
 
 # rendering the html 
 @app.route("/", methods=["GET"])
