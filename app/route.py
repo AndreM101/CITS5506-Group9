@@ -1,18 +1,21 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 import os 
-import socket 
-import get_wifi
-import get_wifi_window
+import wifi_details
 from sys import platform
 
 from database import input_water_data
-from CITS5506-Group9.client scripts.sensor import payload
+
+#from CITS5506-Group9.client scripts.sensor import payload
+
 
 app = Flask(__name__,template_folder="templates")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__)) 
 db_path = os.path.join(BASE_DIR, "database.db")
+
+server_mode, ip, ssid, password=None,None,None,None
+highest_sensor_id = 0
 
 #update data
 
@@ -57,19 +60,24 @@ def get_water():
 
 @app.route('/sendNetworkInformation', methods=["GET"])
 def sendNetworkInformation():
-  ip_address = socket.gethostbyname(socket.gethostname())
-  # get the ssid 
-  if platform=='darwin':
-    ssid=get_wifi.get_wifi_info()
-  elif platform =="win32":
-    ssid= get_wifi_window.get_wifi_info()
+  if server_mode == 'serving':
+      return jsonify({"message": "ERROR: Unauthorized"}), 401
+
   headers = request.headers
   auth = headers.get("X-Api-Key")
   if auth == 'password':
-      return f'Ip address: {ip_address}\nSSID: {ssid}'
+      global highest_sensor_id
+      highest_sensor_id += 1
+      return jsonify({'ip':ip,'ssid':ssid,'password':password,'sensor_id': highest_sensor_id})
   else:
       return jsonify({"message": "ERROR: Unauthorized"}), 401
 
 
 if __name__=="__main__":
+  server_mode = wifi_details.getServerMode()
+  if server_mode == 'preconnect':
+    ip,ssid,password = wifi_details.loadServerMode()
+  elif server_mode == 'serving':
+    wifi_details.saveServerMode()
+
   app.run(debug=True)
