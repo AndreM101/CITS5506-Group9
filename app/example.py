@@ -14,8 +14,8 @@ for n in d:
 
 #database.input_water_data(data,start_time,end_time,'Perth')
 
-#water_data = database.get_water_data()
-#print(water_data)
+water_data = database.get_water_data()
+print(water_data)
 
 #quantity = 0
 #for n in water_data:
