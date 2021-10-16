@@ -9,13 +9,15 @@ start_time = '2021-09-28 10:10:10.0 +8:00'
 url = 'https://www.watercorporation.com.au/Help-and-advice/Bill-and-account/Rates-and-charges/Residential-water-use-charges-explained'
 
 d = get_price(url)
-for n in d:
-    print(n)
+
+t = database.auto_update_price()
+print(t)
+database.input_water_price(t,'North')
 
 #database.input_water_data(data,start_time,end_time,'Perth')
 
-water_data = database.get_water_data()
-print(water_data)
+#water_data = database.get_water_data()
+#print(water_data)
 
 #quantity = 0
 #for n in water_data:
@@ -27,8 +29,8 @@ print(water_data)
 #print(database.get_water_price('Perth'))
 
 
-price = [[0,1.859,1],[151,2.477,1],[500,4.633,1]]
-t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
+#price = [[0,1.859,1],[151,2.477,1],[500,4.633,1]]
+#t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
 
 #database.input_water_price(price,'Perth')
 #database.input_water_data(100,t,1)

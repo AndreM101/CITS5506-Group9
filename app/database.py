@@ -1,8 +1,10 @@
 import os
 import sqlite3
 import time
+from water_price import get_price
 
 database_dir = 'app/database/database.db'
+url = 'https://www.watercorporation.com.au/Help-and-advice/Bill-and-account/Rates-and-charges/Residential-water-use-charges-explained'
 #size of pipe
 s = 1
 
@@ -75,3 +77,21 @@ def get_water_price(area,cls):
     database.commit()
     database.close()
     return p
+
+def auto_update_price():
+    l = get_price(url)[1]
+    t = []
+    for n in l:
+        name = list(n)
+        del(name[0])
+        p = []
+        for m in name:
+            p.append(float(n[m].strip('$')))
+        t.append(p)
+    price = []
+    usage = [0,351,501,751]
+    for cls in range(0,5):
+        for i in range(0,4):
+            price.append([usage[i],t[i][cls],cls+1])
+    return price
+

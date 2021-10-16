@@ -25,7 +25,7 @@ def get_price(url):
     #print(title[i])
     df=pd.read_html(str(tables[i]))[0]
     # print(df)
-    print(df.to_dict("records"))
+    #print(df.to_dict("records"))
   return title,df.to_dict('record')
 
   
