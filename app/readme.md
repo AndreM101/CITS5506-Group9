@@ -1,7 +1,9 @@
 How to use the functions in database.py and calculate.py:
 
 database.py:
+
   Inlcudes 5 functions:
+  
     1. input_water_data:
 
        Insert sensor data function into databse. The input should be: quantity( of water), start_time, sensor ID. No return.
