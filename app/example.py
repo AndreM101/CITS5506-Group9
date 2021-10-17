@@ -1,5 +1,5 @@
 import database
-from caculate import caculate_price
+from calculate import caculate_price
 import os
 from water_price import get_price
 import time
@@ -10,9 +10,9 @@ url = 'https://www.watercorporation.com.au/Help-and-advice/Bill-and-account/Rate
 
 d = get_price(url)
 
-t = database.auto_update_price()
-print(t)
-database.input_water_price(t,'North')
+database.auto_update_price()
+
+#database.input_water_price(t,'North')
 
 #database.input_water_data(data,start_time,end_time,'Perth')
 

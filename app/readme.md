@@ -8,7 +8,7 @@ database.py:
        
     2. input_water_price:
 
-       Insert water price data manually. The input should be: price in a list[[Tier1_start,price,class],...], and area. No return.
+       Insert water price data manually. The input should be: price in a list[[Tier,Tier_start,price,class],...], and area. No return.
        
     3. get_water_data:
 

@@ -29,16 +29,14 @@ def input_water_data(quantity,start_time,sensor):
     #database.close()
 
 # Insert scraped data function
-#price should be a list[[Tier1_start,price,class],...]
+#price should be a list[[Tier,Tier_start,price,class],...]
 def input_water_price(price,area):
     database = sqlite3.connect(database_dir)
     c = database.cursor()
-    tier = 1
     t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
     for n in price:
         c.execute("INSERT OR REPLACE INTO TIERS (AREA,TIER,START,FEE,CLASS,TIMESTAMP)\
-        VALUES(?,?,?,?,?,?)",(area,tier,n[0],n[1],n[2],t))
-        tier = tier + 1
+        VALUES(?,?,?,?,?,?)",(area,n[0],n[1],n[2],n[3],t))
     database.commit()
     database.close()
 
@@ -92,6 +90,7 @@ def auto_update_price():
     usage = [0,351,501,751]
     for cls in range(0,5):
         for i in range(0,4):
-            price.append([usage[i],t[i][cls],cls+1])
-    return price
+            price.append([i+1,usage[i],t[i][cls],cls+1])
+    input_water_price(price,'North')
+    #return price
 
