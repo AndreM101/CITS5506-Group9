@@ -1,5 +1,6 @@
 import subprocess 
-import re         
+import re  
+import os        
 
 def get_wifi_info(): 
 
@@ -12,4 +13,9 @@ def get_wifi_info():
   ssid = profile_names[0]
       
   return ssid 
+
+def get_password(ssid):
+  command = os.system('netsh wlan show profiles {0} key=clear'.format(ssid))
+  password = command["password"]
+  return password 
   

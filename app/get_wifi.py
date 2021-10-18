@@ -1,4 +1,5 @@
 import subprocess
+import os 
 
 def get_wifi_info():
 	process = subprocess.Popen(['/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport','-I'], stdout=subprocess.PIPE)
@@ -15,3 +16,8 @@ def get_wifi_info():
 			wifi_info[key] = val
 
 	return wifi_info["SSID"]
+
+
+def get_password(ssid):
+  process = os.system('security find-generic-password -ga {0} | grep “password:”'.format(ssid))
+  return process 

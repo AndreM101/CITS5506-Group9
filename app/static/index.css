@@ -63,7 +63,8 @@ h1 {
 }
 
 .btn {
-  margin: auto;
+  margin-left: 500px;
+  margin-top: 10px;
   margin-bottom: 30px;
   align-self: center;
   outline: none;
@@ -149,4 +150,13 @@ ul{
 
 #north{
   display: none;
+}
+
+
+#end{
+  display:none;
+}
+
+#volumn {
+  display:none;
 }

@@ -5,6 +5,7 @@ $("#demolist a").on('click', function(e) {
   var selText = $(this).text();
   // call the get price function and pass the region into the url to get the route 
   getPrice(selText)
+  getPriceRegion(selText)
   // check if the selection option and display the table 
   if (selText=="Perth") {$('#perth').css({"display":"table","width": "100%", "text-align":"center"})
     $('#south').css("display","none")  
@@ -57,14 +58,35 @@ const getWater = function() {
 }
 
 
+const getPriceRegion = (region='Perth') => {
+  fetch('/get_price/' + region ,{
+    method:"GET",
+    headers:{
+      headers: {
+        "Content-Type":"application/json"
+      }
+    }
+  })
+  .then(resp => resp.json())
+  .then((data) =>
+    writeData(data)
+  )
+  .catch(error => 
+    console.log(error))
+}
+
+const writeData = function(data) {
+  let price = '<h5 class="text" id="text">' + data[0][3] + '<small class="text-muted">/KL</small></h5>'
+  document.getElementById('text').innerHTML =price
+}
+
+
 const line = function(data) {
 
   var dataArray = []
   for(var i = 0; i < data.length; i++){
     dataArray.push({"label":data[i][0], "y":data[i][1]})
   }
-
-  console.log(dataArray)
 
 
   var bar = document.getElementById("linechart")
@@ -156,5 +178,17 @@ const bar = function(data) {
 }  
 
 getWater()
+
+$('#start').on('click', function(e) {
+  $('#end').css("display","block")
+  $('#start').css("display","none")
+  $('#volumn').css("display","inline-block")
+})
+
+$('#end').on('click', function(e) {
+  $('#start').css("display","block")
+  $('#end').css("display","none")
+  $('#volumn').css("display","none")
+})
 
 
