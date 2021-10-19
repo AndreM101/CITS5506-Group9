@@ -18,10 +18,11 @@ def saveServerMode():
 		if 'network={' in network_configuration:
 			ip = subprocess.check_output("hostname -I", shell=True).decode("utf-8").split(" ")[0]
 			for line in network_configuration:
-				line = line.strip().split("=")
+				line = line.strip().replace('"','').split("=")
+				print(line)
 				if line[0]=='ssid':
 					password = line[-1]
-				elif line[0]=='password':
+				elif line[0]=='psk':
 					ssid = line[-1]
 				if ssid and password:
 					break
@@ -45,8 +46,8 @@ def loadDeviceMode():
 def saveWifiDetails(ssid,password):
 	network_config = f""		\
 	"network={\n"			\
-	f"	ssid={ssid}\n"		\
-	f"	psk={password}\n"	\
+	f"	ssid=\"{ssid}\"\n"	\
+	f"	psk=\"{password}\"\n"	\
 	"	key_mgmt=WPA-PSK\n"	\
 	"}"
 	print(network_config)
@@ -57,3 +58,10 @@ def saveWifiDetails(ssid,password):
 	os.system(f"sudo cp {local_folder}/new.conf {wifi_conf}")
 	os.system("sudo reboot")
 
+
+def set_host():
+	os.system(f"sudo cp {local_folder}/host.conf {wifi_conf}")
+	os.system("sudo reboot")
+
+if __name__ == '__main__':
+	saveServerMode()

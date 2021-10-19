@@ -1,3 +1,4 @@
+#!/bin/bash
 server_ip=$""
 until [[ $server_ip != "" ]]
 do

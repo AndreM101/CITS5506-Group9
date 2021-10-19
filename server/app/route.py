@@ -91,12 +91,17 @@ def sendNetworkInformation():
   headers = request.headers
   auth = headers.get("X-Api-Key")
   # if len(vector) != 0 and auth=="password": 
+  os.system("sudo cp /home/pi/Desktop/server/app/new.conf /etc/wpa_supplicant/wpa_supplicant.conf")
+  os.system("/home/pi/Desktop/server/app/delayed_reboot.sh &")
   if auth == "password":
     return jsonify({'ip':ip, 'ssid':ssid, 'password':password, 'sensor_id': 1})
   else:
     return "It is invalid"
 
-
+@app.route('/preconnect', methods=['GET'])
+def preconnect():
+  wifi.saveServerMode()
+  wifi.set_host()
 
 #  ip_address = socket.gethostbyname(socket.gethostname())
 #  # get the ssid 
@@ -193,6 +198,7 @@ def input_water_data(quantity,start_time,sensor):
         VALUES(?,?,?)",(start_time,sensor,quantity))
     database.commit()
     database.close()
+
 
 
 

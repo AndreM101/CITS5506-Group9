@@ -1,0 +1,817 @@
+started boot
+
+client
+preconnect
+started boot
+default via 192.168.1.1 dev wlan0 proto dhcp src 192.168.1.112 metric 303 192.168.1.0/24 dev wlan0 proto dhcp scope link src 192.168.1.112 metric 303
+connected + sensor
+F: 0, P: 1, R: 1, t: 0:00:01.000522
+F: 0, P: 1, R: 1, t: 0:00:02.001060
+F: 0, P: 1, R: 1, t: 0:00:03.001595
+F: 0, P: 1, R: 1, t: 0:00:04.002164
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 57, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.7/http/client.py", line 1260, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1306, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1255, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1030, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.7/http/client.py", line 970, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 181, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x75a948d0>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='csse-iot.local', port=5000): Max retries exceeded with url: /updateData (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75a948d0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/Desktop/sensor/start_sensor.py", line 28, in <module>
+    requests.post(server_address, data=payload)
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='csse-iot.local', port=5000): Max retries exceeded with url: /updateData (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75a948d0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+started boot
+default dev wlan0 scope link src 169.254.181.25 metric 303 169.254.0.0/16 dev wlan0 scope link src 169.254.181.25 metric 303
+client
+preconnect
+started boot
+default via 192.168.1.1 dev wlan0 proto dhcp src 192.168.1.112 metric 303 192.168.1.0/24 dev wlan0 proto dhcp scope link src 192.168.1.112 metric 303
+connected + sensor
+F: 0, P: 1, R: 1, t: 0:00:01.000519
+F: 0, P: 1, R: 1, t: 0:00:02.001103
+F: 0, P: 1, R: 1, t: 0:00:03.001672
+F: 0, P: 1, R: 1, t: 0:00:04.002244
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.7/http/client.py", line 1260, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1306, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1255, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1030, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.7/http/client.py", line 970, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 181, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x75a33870>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='csse-iot.local', port=5000): Max retries exceeded with url: /updateData (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75a33870>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/Desktop/sensor/start_sensor.py", line 28, in <module>
+    requests.post(server_address, data=payload)
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='csse-iot.local', port=5000): Max retries exceeded with url: /updateData (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75a33870>: Failed to establish a new connection: [Errno 111] Connection refused'))
+started boot
+
+server
+
+updated
+/home/pi/Desktop/boot_sequence.sh: line 21: /home/pi/Desktop/start_network.sh: Permission denied
+0,127.0.0.1
+server + not connected + sensor
+F: 0, P: 1, R: 1, t: 0:00:01.000545
+F: 0, P: 1, R: 1, t: 0:00:02.001163
+F: 0, P: 1, R: 1, t: 0:00:03.001688
+F: 0, P: 1, R: 1, t: 0:00:04.002250
+F: 0, P: 1, R: 1, t: 0:00:00.000525
+F: 0, P: 1, R: 1, t: 0:00:01.001071
+F: 0, P: 1, R: 1, t: 0:00:02.001616
+F: 0, P: 1, R: 1, t: 0:00:03.002151
+F: 0, P: 1, R: 1, t: 0:00:04.002645
+F: 0, P: 1, R: 1, t: 0:00:00.000537
+F: 0, P: 1, R: 1, t: 0:00:01.001059
+F: 0, P: 1, R: 1, t: 0:00:02.001579
+F: 0, P: 1, R: 1, t: 0:00:03.002078
+F: 0, P: 1, R: 1, t: 0:00:04.002567
+F: 0, P: 1, R: 1, t: 0:00:00.000528
+F: 0, P: 1, R: 1, t: 0:00:01.001080
+F: 0, P: 1, R: 1, t: 0:00:02.001609
+F: 0, P: 1, R: 1, t: 0:00:03.002143
+F: 0, P: 1, R: 1, t: 0:00:04.002674
+F: 0, P: 1, R: 1, t: 0:00:00.000532
+F: 0, P: 1, R: 1, t: 0:00:01.001065
+F: 0, P: 1, R: 1, t: 0:00:02.001574
+F: 0, P: 1, R: 1, t: 0:00:03.002095
+F: 0, P: 1, R: 1, t: 0:00:04.002637
+F: 0, P: 1, R: 1, t: 0:00:00.000530
+F: 0, P: 1, R: 1, t: 0:00:01.001082
+F: 0, P: 1, R: 1, t: 0:00:02.001625
+F: 0, P: 1, R: 1, t: 0:00:03.002117
+F: 0, P: 1, R: 1, t: 0:00:04.002594
+F: 0, P: 1, R: 1, t: 0:00:00.000531
+F: 0, P: 1, R: 1, t: 0:00:01.001079
+F: 0, P: 1, R: 1, t: 0:00:02.001616
+F: 0, P: 1, R: 1, t: 0:00:03.002130
+F: 0, P: 1, R: 1, t: 0:00:04.002667
+F: 0, P: 1, R: 1, t: 0:00:00.000531
+F: 0, P: 1, R: 1, t: 0:00:01.001064
+F: 0, P: 1, R: 1, t: 0:00:02.001579
+F: 0, P: 1, R: 1, t: 0:00:03.002123
+F: 0, P: 1, R: 1, t: 0:00:04.002658
+F: 0, P: 1, R: 1, t: 0:00:00.000531
+F: 0, P: 1, R: 1, t: 0:00:01.001057
+F: 0, P: 1, R: 1, t: 0:00:02.001558
+F: 0, P: 1, R: 1, t: 0:00:03.002066
+F: 0, P: 1, R: 1, t: 0:00:04.002563
+F: 0, P: 1, R: 1, t: 0:00:00.000529
+F: 0, P: 1, R: 1, t: 0:00:01.001070
+F: 0, P: 1, R: 1, t: 0:00:02.001578
+F: 0, P: 1, R: 1, t: 0:00:03.002068
+F: 0, P: 1, R: 1, t: 0:00:04.002548
+F: 0, P: 1, R: 1, t: 0:00:00.000514
+F: 0, P: 1, R: 1, t: 0:00:01.001061
+F: 0, P: 1, R: 1, t: 0:00:02.001592
+F: 0, P: 1, R: 1, t: 0:00:03.002138
+F: 0, P: 1, R: 1, t: 0:00:04.002668
+F: 0, P: 1, R: 1, t: 0:00:00.000529
+F: 0, P: 1, R: 1, t: 0:00:01.001083
+F: 0, P: 1, R: 1, t: 0:00:02.001610
+F: 0, P: 1, R: 1, t: 0:00:03.002121
+F: 0, P: 1, R: 1, t: 0:00:04.002638
+F: 0, P: 1, R: 1, t: 0:00:00.000530
+F: 0, P: 1, R: 1, t: 0:00:01.001082
+F: 0, P: 1, R: 1, t: 0:00:02.001612
+F: 0, P: 1, R: 1, t: 0:00:03.002100
+F: 0, P: 1, R: 1, t: 0:00:04.002583
+F: 0, P: 1, R: 1, t: 0:00:00.000527
+F: 0, P: 1, R: 1, t: 0:00:01.001073
+F: 0, P: 1, R: 1, t: 0:00:02.001624
+F: 0, P: 1, R: 1, t: 0:00:03.002145
+F: 0, P: 1, R: 1, t: 0:00:04.002680
+F: 0, P: 1, R: 1, t: 0:00:00.000528
+F: 0, P: 1, R: 1, t: 0:00:01.001053
+F: 0, P: 1, R: 1, t: 0:00:02.001547
+F: 0, P: 1, R: 1, t: 0:00:03.002026
+F: 0, P: 1, R: 1, t: 0:00:04.002532
+F: 0, P: 1, R: 1, t: 0:00:00.000511
+F: 0, P: 1, R: 1, t: 0:00:01.001045
+F: 0, P: 1, R: 1, t: 0:00:02.001592
+F: 0, P: 1, R: 1, t: 0:00:03.002111
+F: 0, P: 1, R: 1, t: 0:00:04.002605
+F: 0, P: 1, R: 1, t: 0:00:00.000530
+F: 0, P: 1, R: 1, t: 0:00:01.001053
+F: 0, P: 1, R: 1, t: 0:00:02.001588
+F: 0, P: 1, R: 1, t: 0:00:03.002127
+F: 0, P: 1, R: 1, t: 0:00:04.002693
+F: 0, P: 1, R: 1, t: 0:00:00.000528
+F: 0, P: 1, R: 1, t: 0:00:01.001087
+F: 0, P: 1, R: 1, t: 0:00:02.001664
+F: 0, P: 1, R: 1, t: 0:00:03.002242
+F: 0, P: 1, R: 1, t: 0:00:04.002796
+F: 0, P: 1, R: 1, t: 0:00:00.000527
+F: 0, P: 1, R: 1, t: 0:00:01.001085
+F: 0, P: 1, R: 1, t: 0:00:02.001668
+F: 0, P: 1, R: 1, t: 0:00:03.002239
+F: 0, P: 1, R: 1, t: 0:00:04.002812
+F: 0, P: 1, R: 1, t: 0:00:00.000531
+F: 0, P: 1, R: 1, t: 0:00:01.001088
+F: 0, P: 1, R: 1, t: 0:00:02.001668
+F: 0, P: 1, R: 1, t: 0:00:03.002233
+F: 0, P: 1, R: 1, t: 0:00:04.002807
+F: 0, P: 1, R: 1, t: 0:00:00.000517
+F: 0, P: 1, R: 1, t: 0:00:01.001082
+F: 0, P: 1, R: 1, t: 0:00:02.001644
+F: 0, P: 1, R: 1, t: 0:00:03.002196
+F: 0, P: 1, R: 1, t: 0:00:04.002752
+F: 0, P: 1, R: 1, t: 0:00:00.000525
+F: 0, P: 1, R: 1, t: 0:00:01.001081
+F: 0, P: 1, R: 1, t: 0:00:02.001659
+F: 0, P: 1, R: 1, t: 0:00:03.002242
+F: 0, P: 1, R: 1, t: 0:00:04.002813
+F: 0, P: 1, R: 1, t: 0:00:00.000531
+F: 0, P: 1, R: 1, t: 0:00:01.001084
+F: 0, P: 1, R: 1, t: 0:00:02.001648
+F: 0, P: 1, R: 1, t: 0:00:03.002181
+F: 0, P: 1, R: 1, t: 0:00:04.002691
+F: 0, P: 1, R: 1, t: 0:00:00.000532
+F: 0, P: 1, R: 1, t: 0:00:01.001055
+F: 0, P: 1, R: 1, t: 0:00:12.059015
+F: 0, P: 1, R: 1, t: 0:00:00.991308
+F: 0, P: 1, R: 1, t: 0:00:01.991883
+F: 0, P: 1, R: 1, t: 0:00:02.992415
+F: 0, P: 1, R: 1, t: 0:00:03.992917
+F: 0, P: 1, R: 1, t: 0:00:04.993404
+F: 0, P: 1, R: 1, t: 0:00:00.988804
+F: 0, P: 1, R: 1, t: 0:00:01.989342
+F: 0, P: 1, R: 1, t: 0:00:02.989840
+F: 0, P: 1, R: 1, t: 0:00:03.990376
+F: 0, P: 1, R: 1, t: 0:00:04.990945
+F: 0, P: 1, R: 1, t: 0:00:00.986219
+F: 0, P: 1, R: 1, t: 0:00:01.986783
+F: 0, P: 1, R: 1, t: 0:00:02.987327
+F: 0, P: 1, R: 1, t: 0:00:03.987849
+F: 0, P: 1, R: 1, t: 0:00:04.988350
+F: 0, P: 1, R: 1, t: 0:00:00.983602
+F: 0, P: 1, R: 1, t: 0:00:01.984147
+F: 0, P: 1, R: 1, t: 0:00:02.984642
+F: 0, P: 1, R: 1, t: 0:00:03.985133
+F: 0, P: 1, R: 1, t: 0:00:04.985619
+F: 0, P: 1, R: 1, t: 0:00:00.980780
+F: 0, P: 1, R: 1, t: 0:00:01.981312
+F: 0, P: 1, R: 1, t: 0:00:02.981862
+F: 0, P: 1, R: 1, t: 0:00:03.982425
+F: 0, P: 1, R: 1, t: 0:00:04.983019
+F: 0, P: 1, R: 1, t: 0:00:00.977674
+F: 0, P: 1, R: 1, t: 0:00:01.978226
+F: 0, P: 1, R: 1, t: 0:00:02.978779
+F: 0, P: 1, R: 1, t: 0:00:03.979334
+F: 0, P: 1, R: 1, t: 0:00:04.979901
+F: 0, P: 1, R: 1, t: 0:00:00.975132
+F: 0, P: 1, R: 1, t: 0:00:01.975711
+F: 0, P: 1, R: 1, t: 0:00:02.976285
+F: 0, P: 1, R: 1, t: 0:00:03.976853
+F: 0, P: 1, R: 1, t: 0:00:04.977429
+F: 0, P: 1, R: 1, t: 0:00:00.971667
+F: 0, P: 1, R: 1, t: 0:00:01.972243
+F: 0, P: 1, R: 1, t: 0:00:02.972820
+F: 0, P: 1, R: 1, t: 0:00:03.973412
+F: 0, P: 1, R: 1, t: 0:00:04.973992
+F: 0, P: 1, R: 1, t: 0:00:00.969321
+F: 0, P: 1, R: 1, t: 0:00:01.969890
+F: 0, P: 1, R: 1, t: 0:00:02.970455
+F: 0, P: 1, R: 1, t: 0:00:03.971021
+F: 0, P: 1, R: 1, t: 0:00:04.971585
+F: 0, P: 1, R: 1, t: 0:00:00.966863
+F: 0, P: 1, R: 1, t: 0:00:01.967437
+F: 0, P: 1, R: 1, t: 0:00:02.968002
+F: 0, P: 1, R: 1, t: 0:00:03.968564
+F: 0, P: 1, R: 1, t: 0:00:04.969127
+F: 0, P: 1, R: 1, t: 0:00:00.964436
+F: 0, P: 1, R: 1, t: 0:00:01.965014
+F: 0, P: 1, R: 1, t: 0:00:02.965586
+F: 0, P: 1, R: 1, t: 0:00:03.966151
+F: 0, P: 1, R: 1, t: 0:00:04.966701
+F: 0, P: 1, R: 1, t: 0:00:00.962093
+F: 0, P: 1, R: 1, t: 0:00:01.962648
+F: 0, P: 1, R: 1, t: 0:00:02.963205
+F: 0, P: 1, R: 1, t: 0:00:03.963776
+F: 0, P: 1, R: 1, t: 0:00:04.964342
+F: 0, P: 1, R: 1, t: 0:00:00.959555
+F: 0, P: 1, R: 1, t: 0:00:01.960136
+F: 0, P: 1, R: 1, t: 0:00:02.960709
+F: 0, P: 1, R: 1, t: 0:00:03.961271
+F: 0, P: 1, R: 1, t: 0:00:04.961840
+F: 0, P: 1, R: 1, t: 0:00:00.957091
+F: 0, P: 1, R: 1, t: 0:00:01.957668
+F: 0, P: 1, R: 1, t: 0:00:02.958233
+F: 0, P: 1, R: 1, t: 0:00:03.958802
+F: 0, P: 1, R: 1, t: 0:00:04.959361
+F: 0, P: 1, R: 1, t: 0:00:00.953683
+F: 0, P: 1, R: 1, t: 0:00:01.954259
+F: 0, P: 1, R: 1, t: 0:00:02.954827
+F: 0, P: 1, R: 1, t: 0:00:03.955388
+F: 0, P: 1, R: 1, t: 0:00:04.955953
+F: 0, P: 1, R: 1, t: 0:00:00.951209
+F: 0, P: 1, R: 1, t: 0:00:01.951788
+F: 0, P: 1, R: 1, t: 0:00:02.952356
+F: 0, P: 1, R: 1, t: 0:00:03.952925
+F: 0, P: 1, R: 1, t: 0:00:04.953493
+F: 0, P: 1, R: 1, t: 0:00:00.948776
+F: 0, P: 1, R: 1, t: 0:00:01.949354
+F: 0, P: 1, R: 1, t: 0:00:02.949934
+F: 0, P: 1, R: 1, t: 0:00:03.950495
+F: 0, P: 1, R: 1, t: 0:00:04.951045
+F: 0, P: 1, R: 1, t: 0:00:00.946449
+F: 0, P: 1, R: 1, t: 0:00:01.947011
+F: 0, P: 1, R: 1, t: 0:00:02.947571
+F: 0, P: 1, R: 1, t: 0:00:03.948133
+F: 0, P: 1, R: 1, t: 0:00:04.948699
+F: 0, P: 1, R: 1, t: 0:00:00.943989
+F: 0, P: 1, R: 1, t: 0:00:01.944561
+F: 0, P: 1, R: 1, t: 0:00:02.945131
+F: 0, P: 1, R: 1, t: 0:00:03.945697
+F: 0, P: 1, R: 1, t: 0:00:04.946261
+F: 0, P: 1, R: 1, t: 0:00:00.941483
+F: 0, P: 1, R: 1, t: 0:00:01.942064
+F: 0, P: 1, R: 1, t: 0:00:02.942626
+F: 0, P: 1, R: 1, t: 0:00:03.943193
+F: 0, P: 1, R: 1, t: 0:00:04.943765
+F: 0, P: 1, R: 1, t: 0:00:00.939131
+F: 0, P: 1, R: 1, t: 0:00:01.939702
+F: 0, P: 1, R: 1, t: 0:00:02.940277
+F: 0, P: 1, R: 1, t: 0:00:03.940844
+F: 0, P: 1, R: 1, t: 0:00:04.941409
+F: 0, P: 1, R: 1, t: 0:00:00.936611
+F: 0, P: 1, R: 1, t: 0:00:01.937185
+F: 0, P: 1, R: 1, t: 0:00:02.937752
+F: 0, P: 1, R: 1, t: 0:00:03.938317
+F: 0, P: 1, R: 1, t: 0:00:04.938879
+F: 0, P: 1, R: 1, t: 0:00:00.932911
+F: 0, P: 1, R: 1, t: 0:00:01.933881
+F: 0, P: 1, R: 1, t: 0:00:02.934429
+F: 0, P: 1, R: 1, t: 0:00:03.934975
+F: 0, P: 1, R: 1, t: 0:00:04.935519
+F: 0, P: 1, R: 1, t: 0:00:00.930978
+F: 0, P: 1, R: 1, t: 0:00:01.931547
+F: 0, P: 1, R: 1, t: 0:00:02.932115
+F: 0, P: 1, R: 1, t: 0:00:03.932690
+F: 0, P: 1, R: 1, t: 0:00:04.933267
+F: 0, P: 1, R: 1, t: 0:00:00.928440
+F: 0, P: 1, R: 1, t: 0:00:01.929014
+F: 0, P: 1, R: 1, t: 0:00:02.929587
+F: 0, P: 1, R: 1, t: 0:00:03.930154
+F: 0, P: 1, R: 1, t: 0:00:04.930715
+F: 0, P: 1, R: 1, t: 0:00:00.925984
+F: 0, P: 1, R: 1, t: 0:00:01.926562
+F: 0, P: 1, R: 1, t: 0:00:02.927127
+F: 0, P: 1, R: 1, t: 0:00:03.927688
+F: 0, P: 1, R: 1, t: 0:00:04.928252
+F: 0, P: 1, R: 1, t: 0:00:00.923628
+F: 0, P: 1, R: 1, t: 0:00:01.924200
+F: 0, P: 1, R: 1, t: 0:00:02.924768
+F: 0, P: 1, R: 1, t: 0:00:03.925345
+F: 0, P: 1, R: 1, t: 0:00:04.925922
+F: 0, P: 1, R: 1, t: 0:00:00.921186
+F: 0, P: 1, R: 1, t: 0:00:01.921761
+F: 0, P: 1, R: 1, t: 0:00:02.922339
+F: 0, P: 1, R: 1, t: 0:00:03.922900
+F: 0, P: 1, R: 1, t: 0:00:04.923477
+F: 0, P: 1, R: 1, t: 0:00:00.918680
+F: 0, P: 1, R: 1, t: 0:00:01.919249
+F: 0, P: 1, R: 1, t: 0:00:02.919795
+F: 0, P: 1, R: 1, t: 0:00:03.920347
+F: 0, P: 1, R: 1, t: 0:00:04.920897
+F: 0, P: 1, R: 1, t: 0:00:00.915148
+F: 0, P: 1, R: 1, t: 0:00:01.915736
+F: 0, P: 1, R: 1, t: 0:00:02.916318
+F: 0, P: 1, R: 1, t: 0:00:03.916882
+F: 0, P: 1, R: 1, t: 0:00:04.917449
+F: 0, P: 1, R: 1, t: 0:00:00.912714
+F: 0, P: 1, R: 1, t: 0:00:01.913292
+F: 0, P: 1, R: 1, t: 0:00:02.913859
+F: 0, P: 1, R: 1, t: 0:00:03.914417
+F: 0, P: 1, R: 1, t: 0:00:04.914980
+F: 0, P: 1, R: 1, t: 0:00:00.910286
+F: 0, P: 1, R: 1, t: 0:00:01.910873
+F: 0, P: 1, R: 1, t: 0:00:02.911438
+F: 0, P: 1, R: 1, t: 0:00:03.912019
+F: 0, P: 1, R: 1, t: 0:00:04.912592
+F: 0, P: 1, R: 1, t: 0:00:00.907929
+F: 0, P: 1, R: 1, t: 0:00:01.908501
+F: 0, P: 1, R: 1, t: 0:00:02.909069
+F: 0, P: 1, R: 1, t: 0:00:03.909642
+F: 0, P: 1, R: 1, t: 0:00:04.910220
+F: 0, P: 1, R: 1, t: 0:00:00.905161
+F: 0, P: 1, R: 1, t: 0:00:01.905736
+F: 0, P: 1, R: 1, t: 0:00:02.906308
+F: 0, P: 1, R: 1, t: 0:00:03.906879
+F: 0, P: 1, R: 1, t: 0:00:04.907448
+F: 0, P: 1, R: 1, t: 0:00:00.902691
+F: 0, P: 1, R: 1, t: 0:00:01.903246
+F: 0, P: 1, R: 1, t: 0:00:02.903799
+F: 0, P: 1, R: 1, t: 0:00:03.904349
+F: 0, P: 1, R: 1, t: 0:00:04.904916
+F: 0, P: 1, R: 1, t: 0:00:00.900358
+F: 0, P: 1, R: 1, t: 0:00:01.900933
+F: 0, P: 1, R: 1, t: 0:00:02.901497
+F: 0, P: 1, R: 1, t: 0:00:03.902061
+F: 0, P: 1, R: 1, t: 0:00:04.902634
+F: 0, P: 1, R: 1, t: 0:00:00.897894
+F: 0, P: 1, R: 1, t: 0:00:01.898474
+F: 0, P: 1, R: 1, t: 0:00:02.899054
+F: 0, P: 1, R: 1, t: 0:00:03.899630
+F: 0, P: 1, R: 1, t: 0:00:04.900204
+F: 0, P: 1, R: 1, t: 0:00:00.893476
+F: 0, P: 1, R: 1, t: 0:00:01.894049
+F: 0, P: 1, R: 1, t: 0:00:02.894623
+F: 0, P: 1, R: 1, t: 0:00:03.895190
+F: 0, P: 1, R: 1, t: 0:00:04.895752
+F: 0, P: 1, R: 1, t: 0:00:00.891212
+F: 0, P: 1, R: 1, t: 0:00:01.891801
+F: 0, P: 1, R: 1, t: 0:00:02.892382
+F: 0, P: 1, R: 1, t: 0:00:03.892949
+F: 0, P: 1, R: 1, t: 0:00:04.893520
+F: 0, P: 1, R: 1, t: 0:00:00.888724
+F: 0, P: 1, R: 1, t: 0:00:01.889299
+F: 0, P: 1, R: 1, t: 0:00:02.889867
+F: 0, P: 1, R: 1, t: 0:00:03.890455
+F: 0, P: 1, R: 1, t: 0:00:04.891026
+F: 0, P: 1, R: 1, t: 0:00:00.886288
+F: 0, P: 1, R: 1, t: 0:00:01.886838
+F: 0, P: 1, R: 1, t: 0:00:02.887387
+F: 0, P: 1, R: 1, t: 0:00:03.887941
+F: 0, P: 1, R: 1, t: 0:00:04.888512
+F: 0, P: 1, R: 1, t: 0:00:00.883253
+F: 0, P: 1, R: 1, t: 0:00:01.883848
+F: 0, P: 1, R: 1, t: 0:00:02.884419
+F: 0, P: 1, R: 1, t: 0:00:03.884994
+F: 0, P: 1, R: 1, t: 0:00:04.885567
+F: 0, P: 1, R: 1, t: 0:00:00.880850
+F: 0, P: 1, R: 1, t: 0:00:01.881424
+F: 0, P: 1, R: 1, t: 0:00:02.882011
+F: 0, P: 1, R: 1, t: 0:00:03.882587
+F: 0, P: 1, R: 1, t: 0:00:04.883202
+F: 0, P: 1, R: 1, t: 0:00:00.878422
+F: 0, P: 1, R: 1, t: 0:00:01.879018
+F: 0, P: 1, R: 1, t: 0:00:02.879602
+F: 0, P: 1, R: 1, t: 0:00:03.880138
+F: 0, P: 1, R: 1, t: 0:00:04.880689
+F: 0, P: 1, R: 1, t: 0:00:00.873502
+F: 0, P: 1, R: 1, t: 0:00:01.874093
+F: 0, P: 1, R: 1, t: 0:00:02.874668
+F: 0, P: 1, R: 1, t: 0:00:03.875237
+F: 0, P: 1, R: 1, t: 0:00:04.875807
+F: 0, P: 1, R: 1, t: 0:00:00.871101
+F: 0, P: 1, R: 1, t: 0:00:01.871684
+F: 0, P: 1, R: 1, t: 0:00:02.872265
+F: 0, P: 1, R: 1, t: 0:00:03.872838
+F: 0, P: 1, R: 1, t: 0:00:04.873391
+F: 0, P: 1, R: 1, t: 0:00:00.868545
+F: 0, P: 1, R: 1, t: 0:00:01.869104
+F: 0, P: 1, R: 1, t: 0:00:02.869664
+F: 0, P: 1, R: 1, t: 0:00:03.870240
+F: 0, P: 1, R: 1, t: 0:00:04.870820
+F: 0, P: 1, R: 1, t: 0:00:00.866274
+F: 0, P: 1, R: 1, t: 0:00:01.866858
+F: 0, P: 1, R: 1, t: 0:00:02.867438
+F: 0, P: 1, R: 1, t: 0:00:03.868021
+F: 0, P: 1, R: 1, t: 0:00:04.868608
+F: 0, P: 1, R: 1, t: 0:00:00.863787
+F: 0, P: 1, R: 1, t: 0:00:01.864360
+F: 0, P: 1, R: 1, t: 0:00:02.864937
+F: 0, P: 1, R: 1, t: 0:00:03.865507
+F: 0, P: 1, R: 1, t: 0:00:04.866084
+F: 0, P: 1, R: 1, t: 0:00:00.861369
+F: 0, P: 1, R: 1, t: 0:00:01.861958
+F: 0, P: 1, R: 1, t: 0:00:02.862536
+F: 0, P: 1, R: 1, t: 0:00:03.863110
+F: 0, P: 1, R: 1, t: 0:00:04.863679
+F: 0, P: 1, R: 1, t: 0:00:00.859079
+F: 0, P: 1, R: 1, t: 0:00:01.859604
+F: 0, P: 1, R: 1, t: 0:00:02.860129
+F: 0, P: 1, R: 1, t: 0:00:03.860690
+F: 0, P: 1, R: 1, t: 0:00:04.861264
+F: 0, P: 1, R: 1, t: 0:00:00.856504
+F: 0, P: 1, R: 1, t: 0:00:01.857083
+F: 0, P: 1, R: 1, t: 0:00:02.857652
+F: 0, P: 1, R: 1, t: 0:00:03.858206
+F: 0, P: 1, R: 1, t: 0:00:04.858756
+F: 0, P: 1, R: 1, t: 0:00:00.852794
+F: 0, P: 1, R: 1, t: 0:00:01.853388
+F: 0, P: 1, R: 1, t: 0:00:02.853968
+F: 0, P: 1, R: 1, t: 0:00:03.854542
+F: 0, P: 1, R: 1, t: 0:00:04.855120
+F: 0, P: 1, R: 1, t: 0:00:00.850516
+F: 0, P: 1, R: 1, t: 0:00:01.851116
+F: 0, P: 1, R: 1, t: 0:00:02.851682
+F: 0, P: 1, R: 1, t: 0:00:03.852243
+F: 0, P: 1, R: 1, t: 0:00:04.852808
+F: 0, P: 1, R: 1, t: 0:00:00.848069
+F: 0, P: 1, R: 1, t: 0:00:01.848660
+F: 0, P: 1, R: 1, t: 0:00:02.849234
+F: 0, P: 1, R: 1, t: 0:00:03.849807
+F: 0, P: 1, R: 1, t: 0:00:04.850376
+F: 0, P: 1, R: 1, t: 0:00:00.845586
+F: 0, P: 1, R: 1, t: 0:00:01.846162
+F: 0, P: 1, R: 1, t: 0:00:02.846746
+F: 0, P: 1, R: 1, t: 0:00:03.847324
+F: 0, P: 1, R: 1, t: 0:00:04.847902
+F: 0, P: 1, R: 1, t: 0:00:00.843320
+F: 0, P: 1, R: 1, t: 0:00:01.843892
+F: 0, P: 1, R: 1, t: 0:00:02.844417
+F: 0, P: 1, R: 1, t: 0:00:03.844916
+F: 0, P: 1, R: 1, t: 0:00:04.845447
+F: 0, P: 1, R: 1, t: 0:00:00.840660
+F: 0, P: 1, R: 1, t: 0:00:01.841182
+F: 0, P: 1, R: 1, t: 0:00:02.841704
+F: 0, P: 1, R: 1, t: 0:00:03.842220
+F: 0, P: 1, R: 1, t: 0:00:04.842751
+F: 0, P: 1, R: 1, t: 0:00:00.838017
+F: 0, P: 1, R: 1, t: 0:00:01.838539
+F: 0, P: 1, R: 1, t: 0:00:02.839052
+F: 0, P: 1, R: 1, t: 0:00:03.839568
+F: 0, P: 1, R: 1, t: 0:00:04.840066
+F: 0, P: 1, R: 1, t: 0:00:00.834302
+F: 0, P: 1, R: 1, t: 0:00:01.834822
+F: 0, P: 1, R: 1, t: 0:00:02.835307
+F: 0, P: 1, R: 1, t: 0:00:03.835806
+F: 0, P: 1, R: 1, t: 0:00:04.836348
+F: 0, P: 1, R: 1, t: 0:00:00.831623
+F: 0, P: 1, R: 1, t: 0:00:01.832139
+F: 0, P: 1, R: 1, t: 0:00:02.832682
+F: 0, P: 1, R: 1, t: 0:00:03.833199
+F: 0, P: 1, R: 1, t: 0:00:04.833697
+F: 0, P: 1, R: 1, t: 0:00:00.828959
+F: 0, P: 1, R: 1, t: 0:00:01.829510
+F: 0, P: 1, R: 1, t: 0:00:02.830015
+F: 0, P: 1, R: 1, t: 0:00:03.830507
+F: 0, P: 1, R: 1, t: 0:00:04.831058
+F: 0, P: 1, R: 1, t: 0:00:00.826485
+F: 0, P: 1, R: 1, t: 0:00:01.827003
+F: 0, P: 1, R: 1, t: 0:00:02.827541
+F: 0, P: 1, R: 1, t: 0:00:03.828069
+F: 0, P: 1, R: 1, t: 0:00:04.828619
+F: 0, P: 1, R: 1, t: 0:00:00.823876
+F: 0, P: 1, R: 1, t: 0:00:01.824398
+F: 0, P: 1, R: 1, t: 0:00:02.824886
+F: 0, P: 1, R: 1, t: 0:00:03.825370
+F: 0, P: 1, R: 1, t: 0:00:04.825893
+F: 0, P: 1, R: 1, t: 0:00:00.821037
+F: 0, P: 1, R: 1, t: 0:00:01.821574
+F: 0, P: 1, R: 1, t: 0:00:02.822118
+F: 0, P: 1, R: 1, t: 0:00:03.822642
+F: 0, P: 1, R: 1, t: 0:00:04.823186
+F: 0, P: 1, R: 1, t: 0:00:00.818626
+F: 0, P: 1, R: 1, t: 0:00:01.819141
+F: 0, P: 1, R: 1, t: 0:00:02.819631
+F: 0, P: 1, R: 1, t: 0:00:03.820116
+F: 0, P: 1, R: 1, t: 0:00:04.820654
+F: 0, P: 1, R: 1, t: 0:00:00.815831
+F: 0, P: 1, R: 1, t: 0:00:01.816353
+F: 0, P: 1, R: 1, t: 0:00:02.816832
+F: 0, P: 1, R: 1, t: 0:00:03.817345
+F: 0, P: 1, R: 1, t: 0:00:04.817857
+F: 0, P: 1, R: 1, t: 0:00:00.811923
+F: 0, P: 1, R: 1, t: 0:00:01.812445
+F: 0, P: 1, R: 1, t: 0:00:02.812964
+F: 0, P: 1, R: 1, t: 0:00:03.813496started boot
+
+client
+preconnect
+started boot
+default dev wlan0 scope link src 169.254.181.25 metric 303 169.254.0.0/16 dev wlan0 scope link src 169.254.181.25 metric 303
+client
+preconnect
+started boot
+default via 192.168.1.1 dev wlan0 proto dhcp src 192.168.1.112 metric 303 192.168.1.0/24 dev wlan0 proto dhcp scope link src 192.168.1.112 metric 303
+connected + sensor
+F: 0, P: 1, R: 1, t: 0:00:01.000527
+F: 0, P: 1, R: 1, t: 0:00:02.001132
+F: 0, P: 1, R: 1, t: 0:00:03.001710
+F: 0, P: 1, R: 1, t: 0:00:04.002288
+HTTPConnectionPool(host='csse-iot.local', port=5000): Max retries exceeded with url: /updateData (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75ab7870>: Failed to establish a new connection: [Errno 111] Connection refused'))
+F: 0, P: 1, R: 1, t: 0:00:00.000518
+F: 0, P: 1, R: 1, t: 0:00:01.001061
+F: 0, P: 1, R: 1, t: 0:00:02.001591
+F: 0, P: 1, R: 1, t: 0:00:03.002098
+F: 0, P: 1, R: 1, t: 0:00:04.002608
+HTTPConnectionPool(host='csse-iot.local', port=5000): Max retries exceeded with url: /updateData (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75ab7cb0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+F: 0, P: 1, R: 1, t: 0:00:00.000512
+F: 0, P: 1, R: 1, t: 0:00:01.001029
+F: 0, P: 1, R: 1, t: 0:00:02.001561
+F: 0, P: 1, R: 1, t: 0:00:03.002069
+F: 0, P: 1, R: 1, t: 0:00:04.002574
+HTTPConnectionPool(host='csse-iot.local', port=5000): Max retries exceeded with url: /updateData (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75a570f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+F: 0, P: 1, R: 1, t: 0:00:00.000519
+F: 0, P: 1, R: 1, t: 0:00:01.001051
+F: 0, P: 1, R: 1, t: 0:00:02.001548
+F: 0, P: 1, R: 1, t: 0:00:03.002025
+F: 0, P: 1, R: 1, t: 0:00:04.002506
+HTTPConnectionPool(host='csse-iot.local', port=5000): Max retries exceeded with url: /updateData (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x75ab7570>: Failed to establish a new connection: [Errno 111] Connection refused'))
+F: 0, P: 1, R: 1, t: 0:00:00.000507
+F: 0, P: 1, R: 1, t: 0:00:01.001068
+F: 0, P: 1, R: 1, t: 0:00:02.001625
+F: 0, P: 1, R: 1, t: 0:00:03.002151
+F: 0, P: 1, R: 1, t: 0:00:04.002642
+F: 0, P: 1, R: 1, t: 0:00:00.000511
+F: 0, P: 1, R: 1, t: 0:00:01.001065
+F: 0, P: 1, R: 1, t: 0:00:02.001627
+F: 0, P: 1, R: 1, t: 0:00:03.002209
+F: 0, P: 1, R: 1, t: 0:00:04.002784
+F: 0, P: 1, R: 1, t: 0:00:00.000514
+F: 0, P: 1, R: 1, t: 0:00:01.001070
+F: 0, P: 1, R: 1, t: 0:00:02.001596
+F: 0, P: 1, R: 1, t: 0:00:03.002140
+F: 0, P: 1, R: 1, t: 0:00:04.002710
+F: 0, P: 1, R: 1, t: 0:00:00.000716
+F: 0, P: 1, R: 1, t: 0:00:01.001300
+F: 0, P: 1, R: 1, t: 0:00:02.001831
+F: 0, P: 1, R: 1, t: 0:00:03.002417
+F: 0, P: 1, R: 1, t: 0:00:04.002995
+F: 0, P: 1, R: 1, t: 0:00:00.000515
+F: 0, P: 1, R: 1, t: 0:00:01.001055
+F: 0, P: 1, R: 1, t: 0:00:02.001587
+F: 0, P: 1, R: 1, t: 0:00:03.002140
+F: 0, P: 1, R: 1, t: 0:00:04.002682
+F: 0, P: 1, R: 1, t: 0:00:00.000518
+F: 0, P: 1, R: 1, t: 0:00:01.001085
+F: 0, P: 1, R: 1, t: 0:00:02.001612
+F: 0, P: 1, R: 1, t: 0:00:03.002118
+F: 0, P: 1, R: 1, t: 0:00:04.002631
+F: 0, P: 1, R: 1, t: 0:00:00.000515
+F: 0, P: 1, R: 1, t: 0:00:01.001065
+F: 0, P: 1, R: 1, t: 0:00:02.001572
+F: 0, P: 1, R: 1, t: 0:00:03.002085
+F: 0, P: 1, R: 1, t: 0:00:04.002609
+F: 0, P: 1, R: 1, t: 0:00:00.000514
+F: 0, P: 1, R: 1, t: 0:00:01.001062
+F: 0, P: 1, R: 1, t: 0:00:02.001563
+F: 0, P: 1, R: 1, t: 0:00:03.002097
+F: 0, P: 1, R: 1, t: 0:00:04.002649
+F: 0, P: 1, R: 1, t: 0:00:00.000519
+F: 0, P: 1, R: 1, t: 0:00:01.001069
+F: 0, P: 1, R: 1, t: 0:00:02.001624
+F: 0, P: 1, R: 1, t: 0:00:03.002173
+F: 0, P: 1, R: 1, t: 0:00:04.002690
+F: 0, P: 1, R: 1, t: 0:00:00.000520
+F: 0, P: 1, R: 1, t: 0:00:01.001108
+F: 0, P: 1, R: 1, t: 0:00:02.001640
+F: 0, P: 1, R: 1, t: 0:00:03.002128
+F: 0, P: 1, R: 1, t: 0:00:04.002636
+F: 0, P: 1, R: 1, t: 0:00:00.000516
+F: 0, P: 1, R: 1, t: 0:00:01.001058
+F: 0, P: 1, R: 1, t: 0:00:02.001568
+F: 0, P: 1, R: 1, t: 0:00:03.002098
+F: 0, P: 1, R: 1, t: 0:00:04.002632
+F: 0, P: 1, R: 1, t: 0:00:00.000516
+F: 0, P: 1, R: 1, t: 0:00:01.001073
+F: 0, P: 1, R: 1, t: 0:00:02.001589
+F: 0, P: 1, R: 1, t: 0:00:03.002084
+F: 0, P: 1, R: 1, t: 0:00:04.002576
+F: 0, P: 1, R: 1, t: 0:00:00.000514
+F: 0, P: 1, R: 1, t: 0:00:01.001094
+F: 0, P: 1, R: 1, t: 0:00:02.001642
+F: 0, P: 1, R: 1, t: 0:00:03.002152
+F: 0, P: 1, R: 1, t: 0:00:04.002665
+F: 0, P: 1, R: 1, t: 0:00:00.000519
+F: 0, P: 1, R: 1, t: 0:00:01.001061
+F: 0, P: 1, R: 1, t: 0:00:02.001558
+F: 0, P: 1, R: 1, t: 0:00:03.002084
+F: 0, P: 1, R: 1, t: 0:00:04.002644
+F: 0, P: 1, R: 1, t: 0:00:00.000525
+F: 0, P: 1, R: 1, t: 0:00:01.001103
+F: 0, P: 1, R: 1, t: 0:00:02.001689
+F: 0, P: 1, R: 1, t: 0:00:03.002232
+F: 0, P: 1, R: 1, t: 0:00:04.002774
+F: 0, P: 1, R: 1, t: 0:00:00.000523
+F: 0, P: 1, R: 1, t: 0:00:01.001100
+F: 0, P: 1, R: 1, t: 0:00:02.001681
+F: 0, P: 1, R: 1, t: 0:00:03.002234
+F: 0, P: 1, R: 1, t: 0:00:04.002731
+F: 0, P: 1, R: 1, t: 0:00:00.000520
+F: 0, P: 1, R: 1, t: 0:00:01.001094
+F: 0, P: 1, R: 1, t: 0:00:02.001667
+F: 0, P: 1, R: 1, t: 0:00:03.002196
+F: 0, P: 1, R: 1, t: 0:00:04.002689
+F: 0, P: 1, R: 1, t: 0:00:00.000761
+F: 0, P: 1, R: 1, t: 0:00:01.001360
+F: 0, P: 1, R: 1, t: 0:00:02.001945
+F: 0, P: 1, R: 1, t: 0:00:03.002529
+F: 0, P: 1, R: 1, t: 0:00:04.003126
+F: 0, P: 1, R: 1, t: 0:00:00.000973
+F: 0, P: 1, R: 1, t: 0:00:01.001573
+F: 0, P: 1, R: 1, t: 0:00:02.002158
+F: 0, P: 1, R: 1, t: 0:00:03.002745
+F: 0, P: 1, R: 1, t: 0:00:04.003336
+F: 0, P: 1, R: 1, t: 0:00:00.000523
+F: 0, P: 1, R: 1, t: 0:00:01.001085
+F: 0, P: 1, R: 1, t: 0:00:02.001621
+F: 0, P: 1, R: 1, t: 0:00:03.002132
+F: 0, P: 1, R: 1, t: 0:00:04.002682
+F: 0, P: 1, R: 1, t: 0:00:00.000517
+F: 0, P: 1, R: 1, t: 0:00:01.001063
+F: 0, P: 1, R: 1, t: 0:00:02.001566
+F: 0, P: 1, R: 1, t: 0:00:03.002071
+F: 0, P: 1, R: 1, t: 0:00:04.002570
+F: 0, P: 1, R: 1, t: 0:00:00.000519
+F: 0, P: 1, R: 1, t: 0:00:01.001090
+F: 0, P: 1, R: 1, t: 0:00:02.001641
+F: 0, P: 1, R: 1, t: 0:00:03.002191
+F: 0, P: 1, R: 1, t: 0:00:04.002720
+F: 0, P: 1, R: 1, t: 0:00:00.000521
+F: 0, P: 1, R: 1, t: 0:00:01.001078
+F: 0, P: 1, R: 1, t: 0:00:02.001610
+F: 0, P: 1, R: 1, t: 0:00:03.002127
+F: 0, P: 1, R: 1, t: 0:00:04.002637
+F: 0, P: 1, R: 1, t: 0:00:00.000513
+F: 0, P: 1, R: 1, t: 0:00:01.001038
+F: 0, P: 1, R: 1, t: 0:00:02.001540
+F: 0, P: 1, R: 1, t: 0:00:03.002026
+F: 0, P: 1, R: 1, t: 0:00:04.002507
+F: 0, P: 1, R: 1, t: 0:00:00.000520
+F: 0, P: 1, R: 1, t: 0:00:01.001100
+F: 0, P: 1, R: 1, t: 0:00:02.001631
+F: 0, P: 1, R: 1, t: 0:00:03.002114
+F: 0, P: 1, R: 1, t: 0:00:04.002593
+F: 0, P: 1, R: 1, t: 0:00:00.000526
+F: 0, P: 1, R: 1, t: 0:00:01.001075
+F: 0, P: 1, R: 1, t: 0:00:02.001594
+F: 0, P: 1, R: 1, t: 0:00:03.002090
+F: 0, P: 1, R: 1, t: 0:00:04.002639
+F: 0, P: 1, R: 1, t: 0:00:00.000520
+F: 0, P: 1, R: 1, t: 0:00:01.001092
+F: 0, P: 1, R: 1, t: 0:00:02.001695
+F: 0, P: 1, R: 1, t: 0:00:03.002273
+F: 0, P: 1, R: 1, t: 0:00:04.002817
+F: 0, P: 1, R: 1, t: 0:00:00.000520
+F: 0, P: 1, R: 1, t: 0:00:01.001067
+F: 0, P: 1, R: 1, t: 0:00:02.001576
+F: 0, P: 1, R: 1, t: 0:00:03.002065
+F: 0, P: 1, R: 1, t: 0:00:04.002597
+F: 0, P: 1, R: 1, t: 0:00:00.000519
+F: 0, P: 1, R: 1, t: 0:00:01.001057
+F: 0, P: 1, R: 1, t: 0:00:02.001609
+F: 0, P: 1, R: 1, t: 0:00:03.002145
+F: 0, P: 1, R: 1, t: 0:00:04.002703
+F: 0, P: 1, R: 1, t: 0:00:00.000528
+F: 0, P: 1, R: 1, t: 0:00:01.001077
+F: 0, P: 1, R: 1, t: 0:00:02.001634
+F: 0, P: 1, R: 1, t: 0:00:03.002171
+F: 0, P: 1, R: 1, t: 0:00:04.002662
+F: 0, P: 1, R: 1, t: 0:00:00.000522
+F: 0, P: 1, R: 1, t: 0:00:01.001052
+F: 0, P: 1, R: 1, t: 0:00:02.001564
+F: 0, P: 1, R: 1, t: 0:00:03.002050
+F: 0, P: 1, R: 1, t: 0:00:04.002582
+F: 0, P: 1, R: 1, t: 0:00:00.000512
+F: 0, P: 1, R: 1, t: 0:00:01.001060
+F: 0, P: 1, R: 1, t: 0:00:02.001572
+F: 0, P: 1, R: 1, t: 0:00:03.002077
+F: 0, P: 1, R: 1, t: 0:00:04.002570
+F: 0, P: 1, R: 1, t: 0:00:00.000524
+F: 0, P: 1, R: 1, t: 0:00:01.001065
+F: 0, P: 1, R: 1, t: 0:00:02.001626
+F: 0, P: 1, R: 1, t: 0:00:03.002164
+F: 0, P: 1, R: 1, t: 0:00:04.002710
+F: 0, P: 1, R: 1, t: 0:00:00.000522
+F: 0, P: 1, R: 1, t: 0:00:01.001063
+F: 0, P: 1, R: 1, t: 0:00:02.001567
+F: 0, P: 1, R: 1, t: 0:00:03.002108
+F: 0, P: 1, R: 1, t: 0:00:04.002701
+F: 0, P: 1, R: 1, t: 0:00:00.000520
+F: 0, P: 1, R: 1, t: 0:00:01.001083
+F: 0, P: 1, R: 1, t: 0:00:02.001674
+F: 0, P: 1, R: 1, t: 0:00:03.002287
+F: 0, P: 1, R: 1, t: 0:00:04.002886
+F: 0, P: 1, R: 1, t: 0:00:00.000523
+F: 0, P: 1, R: 1, t: 0:00:01.001100
+F: 0, P: 1, R: 1, t: 0:00:02.001705
+F: 0, P: 1, R: 1, t: 0:00:03.002289
+F: 0, P: 1, R: 1, t: 0:00:04.002870

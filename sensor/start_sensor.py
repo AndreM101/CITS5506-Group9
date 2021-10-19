@@ -25,7 +25,11 @@ while True:
 		period_litres = frequency/2
 		payload = {"period_litres": period_litres, "start_time": last_sent_time, 'sensor': sensor_id}
 
-		requests.post(server_address, data=payload)
+		try:
+			requests.post(server_address, data=payload)
+		except Exception as e:
+			if type(e) == type(requests.exceptions.ConnectionError()):
+				print(str(e))
 #		print("Sending",payload)
 		last_sent_time = datetime.datetime.now()
 		frequency=0

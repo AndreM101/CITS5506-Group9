@@ -28,7 +28,12 @@
       </div>
     </div>
     <div class="container">
-      <form action="/connection" method="GET">
+      <form action="/preconnect" method="GET">
+      <button type="submit" class="btn btn-primary" id="preconnect"> Link mode </button>
+      </form>
+      <form action="/connection" method="POST">
+        <input name="ssid" id="ssid" value="network name">
+        <input name="password" id="password" value="password">
         <button type="submit" class="btn btn-primary" id="connection">Connection</button>
       </form>
       <form action="{{ url_for('start_verify',volumn=volumn)}}", method='POST'>
