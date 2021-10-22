@@ -48,7 +48,7 @@ def get_price(region):
     rows = cur.fetchall()
   return jsonify(rows)
 
-
+# getting the cost of from water charge table based on region and tiers
 @app.route('/get_price/<region>', methods=["GET"])
 def get_region_price(region):
   con = sqlite3.connect(db_path)
@@ -84,6 +84,7 @@ def get_water():
   print(rows)
   return jsonify(rows)
 
+# send networkinformation 
 @app.route('/sendNetworkInformation', methods=["GET"])
 def sendNetworkInformation():
   if ip is None:
@@ -98,6 +99,7 @@ def sendNetworkInformation():
   else:
     return "It is invalid"
 
+# for preconnect
 @app.route('/preconnect', methods=['GET'])
 def preconnect():
   wifi.saveServerMode()
@@ -127,6 +129,7 @@ def update_database():
    input_water_data(quantity,start_time,sensor)
    return ('',204)
   
+ # for post connection and save network information
 @app.route('/connection', methods=["POST"])
 def saveNetworkInformation():
 #  ip_address = socket.gethostbyname(socket.gethostname())
@@ -150,7 +153,8 @@ def saveNetworkInformation():
 #    return jsonify({'ip':ip, 'ssid':ssid, 'password':password})
 #  else:
 #    return "It is invalid"
-    
+   
+# for verify the accuracy and calculate the calibration factor
 @app.route('/verify/', methods=["POST"])
 def start_verify():
   con = sqlite3.connect(db_path)
@@ -187,7 +191,7 @@ def start_verify():
 
 
 
-
+# for input the water data into the database 
 def input_water_data(quantity,start_time,sensor):
     database = sqlite3.connect('/home/pi/Desktop/server/app/database.db')
     c = database.cursor()
